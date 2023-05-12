@@ -1,0 +1,33 @@
+<!-- uploading csv file in a database -->
+<main>
+    <div id="center">
+        <h1 class="text-center text-dark bg-info-subtle">CSV File Read</h1>
+        <div class="mb-3">
+            <form action="/upload/create" method="post" enctype="multipart/form-data">
+                <!-- only show csv file -->
+                <input class="form-control w-50 mx-auto mt-3" type="file" name="file" id="formFile" accept=".csv">
+                <div class="d-grid gap-2 col-2 mx-auto mt-3">
+                    <input class="btn btn-light bg-info-subtle" type="submit" value="Upload">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto h-100 my-5">
+                <!-- showing a list items of csv file  -->
+                <%for(i of file){%>
+                    <div class="row my-2 border bg-dark bg-gradient p-2 fs-4">
+                        <div class="col-10"><a href="/upload/<%= i.file %>"
+                                class="text-decoration-none text-capitalize text-light">
+                                <%= i.originalName %>
+                            </a> </div>
+                        <div class="col-2"><a href="/delete/<%= i.file %>" class="text-decoration-none text-light">
+                            <i class="fa fa-trash-o"></i></a>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</main>
