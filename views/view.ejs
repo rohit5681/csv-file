@@ -1,0 +1,40 @@
+<!-- for view the csv mile and search the item and also sort the list -->
+<div style="margin:20px auto ">
+    <div class="container bg-info-subtle">
+        <div class="row header text-dark" style="text-align:center;color:green">
+            <h3>Data <%=title%>
+            </h3>
+        </div>
+        <table id="myTable" class="table table-striped">
+            <thead class="text-dark">
+                <!-- for header -->
+                <!-- click on header for sort the items -->
+                <tr>
+                    <% for(let i=0; i<head.length; i++){ %>
+                        <th>
+                            <%= head[i] %>
+                        </th>
+                    <% } %>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- for all item -->
+                <% for(let i=0; i<data.length; i++){ %>
+                    <tr>
+                        <% for(let j=0; j<head.length; j++){ %>
+                            <td>
+                                <%= data[i][head[j]] %>
+                            </td>
+                        <% } %>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#myTable').dataTable();
+    });
+</script>
